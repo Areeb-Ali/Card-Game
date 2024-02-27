@@ -34,4 +34,27 @@ h2{
 
 .reset{
     padding: 10px 20px;
+    color: #267c65;
+    background-color: #ffffff;
+    border: none;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.reset:focus{
+    color: #ffffff;
+    background-color: #267c65;
+}
+
+.game{
+    width: 440px;
+    height: 440px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
 }
