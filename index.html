@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Memory Card Game</title>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Games</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-	<div id="game-board">
-		<div class="card" data-value="0"></div>
-		<div class="card" data-value="0"></div>
-		<div class="card" data-value="50"></div>
-		<div class="card" data-value="100"></div>
-		<div class="card" data-value="200"></div>
-		<div class="card" data-value="300"></div>
-		<div class="card" data-value="400"></div>
-		<div class="card" data-value="500"></div>
-		<div class="card" data-value="50"></div>
-		<div class="card" data-value="100"></div>
-	</div>
-	<button id="reset-button">Reset Game</button>
-	<script src="script.js"></script>
+    <div class="container">
+        <h2>🎯Memory Game🎯</h2>
+        <div class="game"></div>
+        <p>😵 = 0, 😇 = 50, 😊 = 100, ❤️ = 200, </p>
+        <p>😎 = 300, 🎯 = 400, 😍 = 500</p>
+        <button class="reset" onclick="window.location.reload()">RESET GAME</button>
+    </div>
+    <script src="./app.js"></script>
 </body>
+
 </html>

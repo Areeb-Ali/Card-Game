@@ -1,46 +1,32 @@
-const gameBoard = document.getElementById('game-board');
-const resetButton = document.getElementById('reset-button');
-let firstCard, secondCard;
-let hasFlippedCard = false;
+const emojis = ["😵", "😵", "😇", "😇", "😊", "😊", "❤️", "😎", "🎯", "😍",]
+    var shuf_emojis = emojis.sort(() => (Math.random() > .5) ? 2 : -1);
 
-function handleCardClick(event) {
-	const clickedCard = event.target;
-	clickedCard.classList.add('flipped');
-	if (!hasFlippedCard) {
-		hasFlippedCard = true;
-		firstCard = clickedCard;
-		return;
-	}
-	secondCard = clickedCard;
-	checkForMatch();
-}
+    for (var i = 0; i < emojis.length; i++) {
+        let box = document.createElement('div')
+        box.className = 'item';
+        box.innerHTML = shuf_emojis[i]
+        box.onclick = function () {
+            this.classList.add('boxOpen')
+            setTimeout(function () {
+                if (document.querySelectorAll('.boxOpen').length > 1) {
+                    if (document.querySelectorAll('.boxOpen')[0].innerHTML == document.querySelectorAll('.boxOpen')[1].innerHTML) {
+                        document.querySelectorAll('.boxOpen')[0].classList.add('boxMatch')
+                        document.querySelectorAll('.boxOpen')[1].classList.add('boxMatch')
+                        document.querySelectorAll('.boxOpen')[1].classList.remove('boxOpen')
+                        document.querySelectorAll('.boxOpen')[0].classList.remove('boxOpen')
+                        if (document.querySelectorAll('.boxMatch').length == emojis.length) {
+                            alert('YOU WIN')
+                        }
+                    }
+                    else {
+                        document.querySelectorAll('.boxOpen')[1].classList.remove('boxOpen')
+                        document.querySelectorAll('.boxOpen')[0].classList.remove('boxOpen')
+                    }
 
-function checkForMatch() {
-	if (firstCard.dataset.value === secondCard.dataset.value) {
-		alert(`Match! Value: ${firstCard.dataset.value}`);
-		resetBoard();
-	} else {
-		alert('No match! Try again.');
-		unflipCards();
-	}
-}
+                }
+            }, 500)
+        }
+        document.querySelector('.game').appendChild(box);
 
-function unflipCards() {
-	setTimeout(() => {
-		firstCard.classList.remove('flipped');
-		secondCard.classList.remove('flipped');
-		hasFlippedCard = false;
-	}, 1000);
-}
 
-function resetBoard() {
-	firstCard = null;
-	secondCard = null;
-	hasFlippedCard = false;
-	const cards = document.querySelectorAll('.card');
-	cards.forEach(card => card.classList.remove('flipped'));
-}
-
-function shuffleCards() {
-	gameBoard.addEventListener('click', handleCardClick);
-}
+    }
