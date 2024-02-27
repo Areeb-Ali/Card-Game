@@ -1,60 +1,39 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: monospace;
+#game-board {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 10px;
+	width: 500px;
+	height: 200px;
+	margin: 0 auto;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #0a3c2f;
+.card {
+	width: 80px;
+	height: 100px;
+	background-color: #ccc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
 }
 
-.container{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    background-color: #0d614b;
-    padding: 40px 60px;
+.card.flipped {
+	background-color: #ddd;
 }
 
-h2{
-    font-size: 3rem;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-
+#reset-button {
+	display: block;
+	margin: 20px auto;
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
-.reset{
-    padding: 10px 20px;
-    color: #267c65;
-    background-color: #ffffff;
-    border: none;
-    font-size: 1.5rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.reset:focus{
-    color: #ffffff;
-    background-color: #267c65;
-}
-
-.game{
-    width: 440px;
-    height: 440px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    transform-style: preserve-3d;
-    perspective: 500px;
+#reset-button:hover {
+	background-color: #45a049;
 }
