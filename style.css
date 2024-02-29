@@ -57,7 +57,7 @@ p {
     flex-wrap: wrap;
     gap: 10px;
     transform-style: preserve-3d;
-    perspective: 500px;
+    perspective: 430px;
 }
 
 .item {
