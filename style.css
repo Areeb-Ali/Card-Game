@@ -27,7 +27,7 @@
   }
 
   h2 {
-    font-size: calc(1.5em + 0.5vw);  /* Adjust font size based on screen width */
+     font-size: calc(1.5em + 0.5vw);  /*Adjust font size based on screen width */
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -52,8 +52,8 @@
 
   /* Responsive adjustments for game grid and items */
   .game {
-    width: calc(100vw - 60px);
-    height: calc(100vh - 180px);  /* Adjust based on desired top/bottom margin */
+     width: 430px;
+    height: 430px;  /*Adjust based on desired top/bottom margin */
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -63,8 +63,8 @@
 
   .item {
     position: relative;
-    width: calc(25% - 20px);  /* Adjust based on desired item size and gap */
-    height: calc(25% - 20px);
+    width: 100px ;  /* Adjust based on desired item size and gap */
+    height:100px ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,10 +97,10 @@
     transform: rotateY(180deg);
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 425px) {
     /* Additional adjustments for smaller screens */
     h2 {
-      font-size: 1.8em;
+      font-size: 1.8em; 
     }
 
     p {
@@ -120,5 +120,9 @@
     }
     .item{
         height: 100px;
+    }
+    .game {
+        width: calc(100vw - 60px);
+        height: calc(100vh - 180px);  /* Adjust based on desired top/bottom margin */
     }
   }
