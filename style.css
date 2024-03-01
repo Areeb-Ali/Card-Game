@@ -115,4 +115,10 @@
       width: calc(33% - 15px);
       height: calc(33% - 15px);
     }
+    .item:after{
+        height: 100px;
+    }
+    .item{
+        height: 100px;
+    }
   }
