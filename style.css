@@ -4,17 +4,17 @@
     box-sizing: border-box;
     font-family: monospace;
     transition: all 0.5s ease;
-}
+  }
 
-body {
+  body {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     background: #3a3c0a;
-}
+  }
 
-.container {
+  .container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -23,47 +23,48 @@ body {
     justify-content: center;
     background: #5b610d;
     padding: 40px 60px;
-    border-radius: 15px
-}
+    border-radius: 15px;
+  }
 
-h2 {
-    font-size: 3em;
+  h2 {
+    font-size: calc(1.5em + 0.5vw);  /* Adjust font size based on screen width */
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-}
+  }
 
-p {
-    font-size: 2rem;
-}
+  p {
+    font-size: calc(1rem + 0.5vw);  /* Adjust font size based on screen width */
+  }
 
-.reset {
+  .reset {
     padding: 15px 20px;
     color: #7c7a26;
     background-color: #fff;
     border: none;
     outline: none;
-}
+  }
 
-.reset:focus {
+  .reset:focus {
     color: #fff;
     background: #6c7c26;
-}
+  }
 
-.game {
-    width: 430px;
-    height: 430px;
+  /* Responsive adjustments for game grid and items */
+  .game {
+    width: calc(100vw - 60px);
+    height: calc(100vh - 180px);  /* Adjust based on desired top/bottom margin */
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     transform-style: preserve-3d;
     perspective: 430px;
-}
+  }
 
-.item {
+  .item {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: calc(25% - 20px);  /* Adjust based on desired item size and gap */
+    height: calc(25% - 20px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,9 +74,9 @@ p {
     transition: 0.2s;
     border-radius: 15px;
     cursor: pointer;
-}
+  }
 
-.item:after {
+  .item:after {
     content: '';
     position: absolute;
     inset: 0;
@@ -85,43 +86,33 @@ p {
     backface-visibility: hidden;
     border-radius: 15px;
     cursor: pointer;
-}
+  }
 
-.item .boxOpen {
-    transform: rotateY(0deg)
-}
+  .item .boxOpen {
+    transform: rotateY(0deg);
+  }
 
-.boxOpen:after,
-.boxMatch:after {
+  .boxOpen:after,
+  .boxMatch:after {
     transform: rotateY(180deg);
-}
+  }
 
-@media only screen and (max-width: 430px) {
-
+  @media only screen and (max-width: 768px) {
+    /* Additional adjustments for smaller screens */
     h2 {
-        font-size: 2em;
-        text-align: center;
+      font-size: 1.8em;
     }
 
-    .item {
-        width: 50px;
-        height: 50px;
-    }
-    .game {
-        gap: 15px;
-        margin-left: 65px;    }
-    p{
-        margin: 30px;
-        font-size: 15px;
-        text-align: center;
+    p {
+      font-size: 1.2rem;
     }
 
     .container {
-        text-align: center;
-        margin-left: 45px;
-        width: 430px;
+      padding: 20px 40px;
     }
-    body{
-        width: 430px;
+
+    .item {
+      width: calc(33% - 15px);
+      height: calc(33% - 15px);
     }
-}
+  }
