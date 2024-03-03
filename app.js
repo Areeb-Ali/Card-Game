@@ -51,3 +51,54 @@ var shuf_emojis = emojis.sort(() => (Math.random() > .5) ? 2 : -1);
 
 
     }
+    // Add Coins Function 
+    // Replace "100" with the actual starting number of coins
+const startingCoins = 50;
+
+// Get the coin display element
+const coinDisplay = document.getElementById('coin-display');
+const specialKeyInput = document.getElementById('special-key-input');
+const addCoinsButton = document.getElementById('add-coins-button');
+const wrongKeyMessage = document.getElementById('wrong-key-message');
+
+// Update the coin display initially
+coinDisplay.textContent = `You have ${startingCoins} coins.`;
+
+// Function to update coin display
+function updateCoins(change) {
+  const currentCoins = parseInt(coinDisplay.textContent.split(' ')[2]);
+  const newCoins = currentCoins + change;
+  coinDisplay.textContent = `You have ${newCoins} coins.`;
+}
+
+// Validate special key and handle coin addition
+addCoinsButton.addEventListener('click', () => {
+  const inputValue = specialKeyInput.value.trim().toLowerCase();
+  const parts = inputValue.split(' ');
+
+  if (parts.length !== 2) {
+    wrongKeyMessage.textContent = "Invalid input format (e.g., secretkey 100)";
+    wrongKeyMessage.style.display = "block";
+    return;
+  }
+
+  const specialKey = parts[0];
+  const amount = parseInt(parts[1]);
+
+  if (specialKey !== "secretkey") {
+    wrongKeyMessage.textContent = "Wrong special key!";
+    wrongKeyMessage.style.display = "block";
+    return;
+  }
+
+  // Replace with your actual validation for the amount (if needed)
+  if (amount <= 0) {
+    wrongKeyMessage.textContent = "Invalid amount. Please enter a positive number.";
+    wrongKeyMessage.style.display = "block";
+    return;
+  }
+
+  updateCoins(amount);
+  specialKeyInput.value = "";
+  wrongKeyMessage.style.display = "none";
+});

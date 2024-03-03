@@ -37,6 +37,13 @@
     font-size: calc(1rem + 0.5vw);  /* Adjust font size based on screen width */
   }
 
+  .reset1 {
+    padding: 15px 20px;
+    color: #7c7a26;
+    background-color: #fff;
+    border: none;
+    outline: none;
+  }
   .reset {
     padding: 15px 20px;
     color: #7c7a26;
@@ -45,6 +52,10 @@
     outline: none;
   }
 
+  .reset1:focus {
+    color: #fff;
+    background: #6c7c26;
+  }
   .reset:focus {
     color: #fff;
     background: #6c7c26;
